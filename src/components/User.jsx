@@ -1,12 +1,15 @@
-import React from 'react';
+import React from 'react'
+import './User.css'
 
-const User = (props) => {
+export default function User(props) {
   return (
-    <div>
-      <img src={props.image} alt={`${props.firstName} ${props.lastName}`} />
-      <p>{props.firstName} {props.lastName}</p>
+    <div className='User'>
+        <img src={props.image} alt="Image de profile" />
+        <div>
+            <div className='FullName'>{props.nom}</div>
+            <button onClick={props.details}>Detail User</button>
+            <button onClick={props.ListTaches}>List des taches</button>
+        </div>
     </div>
-  );
-};
-
-export default User;
+  )
+}

@@ -1,22 +1,18 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { Outlet, useNavigate } from "react-router-dom";
-
-export default function Acceuil() {
-  const navigate = useNavigate();
-  const user = useSelector((state) => state.user.user);
-
-  useEffect(() => {
-    if (Object.keys(user).length === 0) {
-      navigate("/");
-    }
-  });
-
+import React from "react";
+import "./Accueil.css";
+import { Routes, Route } from "react-router-dom";
+import ListUser from "../ListUser";
+import DetailUser from "./../DetailUser";
+import ListToDo from "./../ListToDo";
+export default function Accueil() {
   return (
-    <div className="acceuil">
-      <div className="content">
-        <Outlet />
-      </div>
+    <div>
+      <div className="Head">Gestion des tâches :</div>
+      <Routes>
+        <Route exact path="/" element={<ListUser />} />
+        <Route path="/DetailUser/:id" element={<DetailUser />} />
+        <Route path="/ListToDo/:id" element={<ListToDo />} />
+      </Routes>
     </div>
   );
 }

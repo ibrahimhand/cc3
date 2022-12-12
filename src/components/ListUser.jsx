@@ -1,42 +1,25 @@
-import React from 'react';
-import './ListUser.css'; 
-import { connect } from 'react-redux';
+import React from "react";
+import "./ListUser.css";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import User from "./../User/User";
+import Accueil from "./Acceuil";
 
-
-
-
-const ListUser = (props) => {
-  const users = props.users;
-
-  const userGroups = [];
-  for (let i = 0; i < users.length; i += 4) {
-    userGroups.push(users.slice(i, i + 4));
-  }
-
+export default function ListUser() {
+  const navigate = useNavigate();
+  const { data } = useSelector((state) => state.user);
   return (
-    <div className="list-user">
-      <h1>Liste des utilisateurs</h1>
-      <ul>
-        {users.map((user, index) => {
-          if (index % 4 === 0) {
-            return (
-              <li key={user.id}>
-                <p>{user.name}</p>
-              </li>
-            );
-          }
-          return null;
-        })}
-      </ul>
+    <div className="ListUsers">
+      {data.length != 0 &&
+        data.users.map((user) => (
+          <User
+            key={user.id}
+            image={user.image}
+            nom={`${user.firstName} ${user.lastName}`}
+            details={(e) => navigate(`/DetailUser/${user.id}`)}
+            ListTaches={(e) => navigate(`/ListTodo/${user.id}`)}
+          />
+        ))}
     </div>
   );
-  
-};
-
-const mapStateToProps = (state) => {
-  return {
-    users: state.users,
-  };
-};
-
-export default connect(mapStateToProps)(ListUser);
+}

@@ -1,0 +1,18 @@
+.Info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+  }
+  table {
+    border-collapse: collapse;
+  }
+  table,
+  table td {
+    border: 2px solid black;
+  }
+  
+  table td {
+    padding: 7px;
+  }

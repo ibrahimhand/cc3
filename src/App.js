@@ -1,15 +1,23 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import "./App.css";
-import Acceuil from "./components/Acceuil";
+import { getUser } from "./redux/UserSlice";
+import { getToDoList } from "./redux/TodoSlice";
+import { BrowserRouter as Router } from "react-router-dom";
+import Accueil from "./components/Accueil";
+
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getUser());
+    dispatch(getToDoList());
+  }, [dispatch]);
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="Acceuil" element={<Acceuil />}>
-          
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <Router>
+      <div className="App">
+        <Accueil />
+      </div>
+    </Router>
   );
 }
 

@@ -1,23 +1,6 @@
-.list-user {
-    width: 500px;
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  .list-user ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .list-user li {
-    display: inline-block;
-    width: 25%;
-  }
-  
-  .list-user p {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 0;
-    padding: 10px;
-  }
-  
+.ListeUsers{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  width: 100%;
+  margin: auto;
+}
