@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 export default function DetailUser() {
   const { id } = useParams();
   const { data } = useSelector((state) => state.user);
-  const selectedUser = data.users.filter((user) => user.id == id);
+  const selectedUser = data.users.filter((user) => user.id === id);
   return (
     <div>
       {selectedUser.map((user) => (

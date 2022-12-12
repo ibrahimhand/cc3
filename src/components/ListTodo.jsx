@@ -9,9 +9,9 @@ import { useSelector } from "react-redux";
 export default function ListTodo() {
   const { id } = useParams();
   const userList = useSelector((state) => state.user.data);
-  const todoList = useSelector((state) => state.todoList.data);
+  const TodoList = useSelector((state) => state.TodoList.data);
   const selectedUser = userList.users.filter((user) => user.id == id);
-  const selectedToDos = todoList.todos.filter((todo) => todo.id == id);
+  const selectedTodos = TodoList.Todos.filter((Todo) => Todo.id == id);
   return (
     <div>
       <h1>
@@ -27,11 +27,11 @@ export default function ListTodo() {
             </tr>
           </thead>
           <tbody>
-            {selectedToDos.map((todo) => (
-              <tr key={todo.id}>
-                <td>{todo.todo}</td>
+            {selectedTodos.map((Todo) => (
+              <tr key={Todo.id}>
+                <td>{Todo.Todo}</td>
                 <td>
-                  {todo.completed === true ? (
+                  {Todo.completed === true ? (
                     <FontAwesomeIcon icon={faCheck} />
                   ) : (
                     <FontAwesomeIcon icon={faXmark} />
