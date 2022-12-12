@@ -5,28 +5,28 @@ import { useParams } from "react-router-dom";
 
 export default function DetailUser() {
   const { id } = useParams();
-  const { data } = useSelector((state) => state.user);
-  const selectedUser = data.users.filter((user) => user.id === id);
+  const { data } = useSelector((state) => state.User);
+  const selectedUser = data.Users.filter((User) => User.id === id);
   return (
     <div>
-      {selectedUser.map((user) => (
-        <div className="Details" key={user.id}>
+      {selectedUser.map((User) => (
+        <div className="Details" key={User.id}>
           <div className="image">
-            <img src={user.image} alt="Profile Picture" />
+            <img src={User.image} alt="Profile Picture" />
           </div>
           <div>
-            <img src={user.image} alt={user.name} />
-            <div>First Name: {user.firstName}</div>
-            <div>Last Name: {user.lastName}</div>
-            <div>Age: {user.age}</div>
-            <div>Gender: {user.gender}</div>
-            <div>Email: {user.email}</div>
-            <div>Phone: {user.phone}</div>
-            <div>Poids: {user.weight}</div>
-            <div>Hauteur: {user.height}</div>
-            <div>Date de naissance: {user.birthDate}</div>
-            <div>Groupe sanguin: {user.bloodGroup}</div>
-            <div>Couleur de l'œil: {user.eyeColor}</div>
+            <img src={User.image} alt={User.name} />
+            <div>First Name: {User.firstName}</div>
+            <div>Last Name: {User.lastName}</div>
+            <div>Age: {User.age}</div>
+            <div>Gender: {User.gender}</div>
+            <div>Email: {User.email}</div>
+            <div>Phone: {User.phone}</div>
+            <div>Poids: {User.weight}</div>
+            <div>Hauteur: {User.height}</div>
+            <div>Date de naissance: {User.birthDate}</div>
+            <div>Groupe sanguin: {User.bloodGroup}</div>
+            <div>Couleur de l'œil: {User.eyeColor}</div>
           </div>
         </div>
       ))}

@@ -3,7 +3,7 @@ import UserReducer from "./UserSlice";
 import todoreducer from "./TodoSlice";
 
 const reducer = combineReducers({
-  user: UserReducer,
+  User: UserReducer,
   todo: todoreducer,
 });
 

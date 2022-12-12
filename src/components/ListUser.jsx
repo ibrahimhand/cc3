@@ -7,17 +7,17 @@ import Accueil from "./Acceuil";
 
 export default function ListUser() {
   const navigate = useNavigate();
-  const { data } = useSelector((state) => state.user);
+  const { data } = useSelector((state) => state.User);
   return (
     <div className="ListUsers">
       {data.length != 0 &&
-        data.users.map((user) => (
+        data.Users.map((User) => (
           <User
-            key={user.id}
-            image={user.image}
-            nom={`${user.firstName} ${user.lastName}`}
-            details={(e) => navigate(`/DetailUser/${user.id}`)}
-            ListTaches={(e) => navigate(`/ListTodo/${user.id}`)}
+            key={User.id}
+            image={User.image}
+            nom={`${User.firstName} ${User.lastName}`}
+            details={(e) => navigate(`/DetailUser/${User.id}`)}
+            ListTaches={(e) => navigate(`/ListTodo/${User.id}`)}
           />
         ))}
     </div>

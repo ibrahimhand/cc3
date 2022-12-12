@@ -8,9 +8,9 @@ import { useSelector } from "react-redux";
 
 export default function ListTodo() {
   const { id } = useParams();
-  const userList = useSelector((state) => state.user.data);
+  const UserList = useSelector((state) => state.User.data);
   const TodoList = useSelector((state) => state.TodoList.data);
-  const selectedUser = userList.users.filter((user) => user.id == id);
+  const selectedUser = UserList.Users.filter((User) => User.id == id);
   const selectedTodos = TodoList.Todos.filter((Todo) => Todo.id == id);
   return (
     <div>

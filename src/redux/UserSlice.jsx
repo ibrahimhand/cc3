@@ -1,13 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getUsers = createAsyncThunk("users/getUsers", async () => {
-  const response = await axios.get("https://dummyjson.com/users");
+export const getUsers = createAsyncThunk("Users/getUsers", async () => {
+  const response = await axios.get("https://dummyjson.com/Users");
   return response.data;
 });
 
 const UserSlice = createSlice({
-  name: "users",
+  name: "Users",
   initialState: {
     data: [],
     loading: "idle",
